@@ -444,9 +444,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   menuSearchInput.addEventListener('input', (e) => {
-    const activePill = document.querySelector('#menu-category-filter .cat-pill.active');
-    const cat = activePill ? activePill.dataset.filter : 'all';
-    renderMenuItems(cat, e.target.value);
+    const query = e.target.value.trim();
+    if (query.length > 0) {
+      renderMenuItems('all', query);
+    } else {
+      const activePill = document.querySelector('#menu-category-filter .cat-pill.active');
+      const cat = activePill ? activePill.dataset.filter : 'all';
+      renderMenuItems(cat, '');
+    }
   });
 
 
