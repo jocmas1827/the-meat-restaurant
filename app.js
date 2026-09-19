@@ -742,6 +742,32 @@ document.addEventListener('DOMContentLoaded', () => {
     switchTab('view-inicio');
   });
 
+  // Account menu items
+  const accItemReservas = document.getElementById('acc-item-reservas');
+  const accItemFavoritos = document.getElementById('acc-item-favoritos');
+  const accItemContacto = document.getElementById('acc-item-contacto');
+  const accItemUbicacion = document.getElementById('acc-item-ubicacion');
+
+  if (accItemReservas) {
+    accItemReservas.addEventListener('click', () => switchTab('view-reservas'));
+  }
+  if (accItemFavoritos) {
+    accItemFavoritos.addEventListener('click', () => {
+      switchTab('view-menu');
+      filterMenuCategory('cortes');
+    });
+  }
+  if (accItemContacto) {
+    accItemContacto.addEventListener('click', () => {
+      showToast('Concierge VIP: Atención directa +34 910 000 000');
+    });
+  }
+  if (accItemUbicacion) {
+    accItemUbicacion.addEventListener('click', () => {
+      showToast('Paseo de la Castellana 120 • 13:00 a 01:00');
+    });
+  }
+
 
   // =========================================================================
   // 8. TOAST SYSTEM (EMIL KOWALSKI SONNER RECIPE)
